@@ -1,5 +1,3 @@
-
-
 const board = document.getElementById('game-board');
 const statusText = document.getElementById('status');
 const restartButton = document.getElementById('restart-button');
@@ -65,7 +63,8 @@ function checkMatch() {
     matchedPairs++;
     if (matchedPairs === currentSymbols.length / 2) {
       clearInterval(countdown);
-      statusText.textContent = `🎉 You won in ${formatTime(elapsedSeconds)}!`;
+      const winTimeText = formatElapsedTime(elapsedSeconds);
+      statusText.textContent = `🎉 You won in ${winTimeText}!`;
       restartButton.style.display = 'inline-block';
       nextLevelButton.style.display = levelSelect.value !== 'hard' ? 'inline-block' : 'none';
     }
@@ -118,10 +117,14 @@ function updateTimerDisplay() {
   timerDisplay.textContent = `⏱️ ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 }
 
-function formatTime(seconds) {
+function formatElapsedTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
-  return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  if (mins > 0) {
+    return `${mins} min ${secs} sec`;
+  } else {
+    return `${secs} sec`;
+  }
 }
 
 function endGameDueToTimeout() {
