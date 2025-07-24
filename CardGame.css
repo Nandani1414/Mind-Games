@@ -128,3 +128,14 @@ button:hover {
 .card:hover {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
+
+#start-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
