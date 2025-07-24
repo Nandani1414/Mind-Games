@@ -33,5 +33,5 @@ A fun and interactive memory card game built with **HTML**, **CSS**, and **JavaS
 ---
 
 ### 🌐 Live Demo
-[Click to Play Now](https://nandani1414.github.io/Mind-Games/)
+[Click to Play Now](https://nandani1414.github.io/Mind-Games/CardGame.html)
 
