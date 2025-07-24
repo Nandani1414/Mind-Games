@@ -1,3 +1,4 @@
+
 const board = document.getElementById('game-board');
 const statusText = document.getElementById('status');
 const restartButton = document.getElementById('restart-button');
@@ -5,6 +6,7 @@ const nextLevelButton = document.getElementById('next-level-button');
 const levelSelect = document.getElementById('level-select');
 const timeSelect = document.getElementById('time-select');
 const timerDisplay = document.getElementById('timer');
+const startButton = document.getElementById('start-btn'); // new
 
 const allSymbols = ['🕊️','🦜','🐧','🦚','🪺','🦩','🐦','🦆','🦅','🦉','🐓','🦃'];
 
@@ -22,6 +24,11 @@ restartButton.addEventListener('click', restartGame);
 nextLevelButton.addEventListener('click', goToNextLevel);
 levelSelect.addEventListener('change', restartGame);
 timeSelect.addEventListener('change', restartGame);
+
+startButton.addEventListener('click', () => {
+  startButton.style.display = 'none'; // hide start button
+  restartGame(); // start game manually
+});
 
 function getSymbolsForLevel(level) {
   const pairCount = level === 'medium' ? 6 : level === 'hard' ? 8 : 4;
@@ -150,7 +157,7 @@ function restartGame() {
   const level = levelSelect.value;
   currentSymbols = getSymbolsForLevel(level);
 
-  const columns = level === 'easy' ? 4 : 4;
+  const columns = 4; // same for all levels
   board.style.gridTemplateColumns = `repeat(${columns}, 80px)`;
 
   currentSymbols.forEach(symbol => createCard(symbol));
@@ -164,4 +171,5 @@ function goToNextLevel() {
   restartGame();
 }
 
-restartGame(); // auto start on load
+// ❌ Removed auto-start
+// restartGame();
