@@ -13,10 +13,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-
-
   padding: 20px;
   gap: 10px;
   text-align: center;
@@ -48,17 +45,17 @@ select {
 
 #game-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-gap: 15px;
   justify-content: center;
   margin: 20px 0;
-  max-width: 600px;
+  max-width: 700px;
   width: 100%;
 }
 
 .card {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  aspect-ratio: 1/1; /* ensures square shape on all screens */
   cursor: pointer;
   perspective: 1000px;
   border: 2px solid white;
@@ -90,7 +87,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: clamp(18px, 5vw, 28px); /* resizes symbol */
 }
 
 .card-front {
@@ -106,6 +103,8 @@ select {
 .buttons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -138,4 +137,37 @@ button:hover {
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+
+/* 📱 Mobile styles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #game-board {
+    grid-gap: 10px;
+    max-width: 100%;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+/* 💻 Tablet styles */
+@media (min-width: 601px) and (max-width: 900px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #game-board {
+    grid-gap: 18px;
+    max-width: 90%;
+  }
+
+  button {
+    font-size: 1rem;
+  }
 }

@@ -1,4 +1,5 @@
 
+
 const board = document.getElementById('game-board');
 const statusText = document.getElementById('status');
 const restartButton = document.getElementById('restart-button');
@@ -172,4 +173,4 @@ function goToNextLevel() {
 }
 
 // ❌ Removed auto-start
-// restartGame();
+// restartGame();  this is js now make it responsive
